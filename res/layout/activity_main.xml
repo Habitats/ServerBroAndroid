@@ -1,39 +1,84 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical"
     tools:context="no.habitats.serverbroandroid.MainActivity$PlaceholderFragment" >
 
     <TextView
-        android:id="@+id/textViewFeed"
+        android:id="@+id/tvLogFeed"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/buttonRequest"
-        android:padding="16dp"
-        android:text="@string/hello_world" />
+        android:layout_height="0dp"
+        android:layout_weight="0.45"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/buttonRequest"
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvMessageFeed"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="Request" />
+        android:layout_height="0dp"
+        android:layout_weight="0.45"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/buttonConnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewFeed"
-        android:layout_alignParentLeft="true"
-        android:text="Connect" />
+    <View
+        android:id="@+id/separator2"
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="visible" />
 
-    <Button
-        android:id="@+id/buttonDisconnect"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonRequest"
-        android:layout_alignParentRight="true"
-        android:text="Disconnect" />
+        android:text="Status"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonConnect"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="Connect"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/buttonDisconnect"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="Disconnect"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/buttonRequest"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="Request"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</LinearLayout>

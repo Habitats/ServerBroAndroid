@@ -6,11 +6,9 @@ import java.util.Observer;
 import serverBro.broClient.ClientController;
 import serverBro.broShared.BroModel;
 import serverBro.broShared.Logger;
-import serverBro.broShared.events.external.MessageEvent;
-import serverBro.broShared.events.external.PingRequest;
+import serverBro.broShared.events.internal.ComputerInfoButtonEvent;
 import serverBro.broShared.events.internal.ConnectButtonEvent;
 import serverBro.broShared.events.internal.DisconnectButtonEvent;
-import serverBro.broShared.events.internal.MessageButtonEvent;
 import serverBro.broShared.view.BroGuiController;
 import serverBro.broShared.view.LogView;
 import android.app.Activity;
@@ -82,7 +80,8 @@ public class MainActivity extends Activity implements Observer {
 
       @Override
       public void onClick(View v) {
-        clientController.actionPerformed(new MessageButtonEvent());
+//        clientController.actionPerformed(new MessageButtonEvent());
+         clientController.actionPerformed(new ComputerInfoButtonEvent());
       }
     });
   }
@@ -96,6 +95,11 @@ public class MainActivity extends Activity implements Observer {
       public void run() {
         tvStatus.setText(model.getNetworkStatus());
         messageView.add(model.getLastMessage());
+        if (model.getComputerInfo() != null) {
+          messageView.add(model.getComputerInfo().getUptimeStats().toString());
+          messageView.add(model.getComputerInfo().getRamStats().toString());
+          messageView.add(model.getComputerInfo().getCpuStats().toString());
+        }
       }
     });
   }
