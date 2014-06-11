@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/normal_padding"
+    android:orientation="vertical"
+    tools:context="no.habitats.serverbroandroid.activities.LoginActivity"
+     >
+
+    <EditText
+        android:id="@+id/tvHostname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hostname" />
+        <requestFocus />
+
+    <EditText
+        android:id="@+id/tvPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Port"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/tvPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/bConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect" />
+
+</LinearLayout>

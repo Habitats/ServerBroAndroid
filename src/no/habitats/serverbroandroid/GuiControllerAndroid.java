@@ -1,18 +1,19 @@
-package no.habitats.serverbroandroid;
+package no.habitats.serverBroAndroid;
+
+import java.util.Observer;
 
 import serverBro.broShared.BroModel;
 import serverBro.broShared.view.BroGuiController;
+import android.app.Activity;
 
-public class GuiControllerAndroid extends BroGuiController{
-  private MainActivity mainActity;
-
-  public GuiControllerAndroid(MainActivity mainActity) {
-    this.mainActity = mainActity;
-  }
+public class GuiControllerAndroid extends BroGuiController {
 
   @Override
   public void setModel(BroModel model) {
     super.model = model;
-    model.addObserver(mainActity);
+  }
+
+  public void addObserver(Observer observer) {
+    model.addObserver(observer);
   }
 }

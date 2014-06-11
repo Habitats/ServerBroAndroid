@@ -1,19 +1,20 @@
-package no.habitats.serverbroandroid;
+package no.habitats.serverBroAndroid;
 
-import serverBro.broShared.Logger;
 import serverBro.broShared.view.LogView;
+import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 public class AndroidLogView implements LogView {
 
   private TextView viewFeed;
-  private MainActivity mainActivity;
+  private Fragment mainActivity;
   private boolean autoScroll;
 
-  public AndroidLogView(TextView viewFeed, MainActivity mainActivity) {
+  public AndroidLogView(TextView viewFeed, Fragment feedFragment) {
     this.viewFeed = viewFeed;
-    this.mainActivity = mainActivity;
+    this.mainActivity = feedFragment;
     autoScroll = true;
     initTextView();
   }
@@ -24,7 +25,7 @@ public class AndroidLogView implements LogView {
 
   @Override
   public void add(final String log) {
-    mainActivity.runOnUiThread(new Runnable() {
+    mainActivity.getActivity().runOnUiThread(new Runnable() {
 
 
       @Override

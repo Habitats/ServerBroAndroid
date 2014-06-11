@@ -5,7 +5,7 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
     android:orientation="vertical"
-    tools:context="no.habitats.serverbroandroid.MainActivity$PlaceholderFragment" >
+    tools:context=".activities.MainActivity" >
 
     <TextView
         android:id="@+id/tvLogFeed"
