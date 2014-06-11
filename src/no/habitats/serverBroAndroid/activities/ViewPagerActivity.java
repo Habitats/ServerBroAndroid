@@ -1,19 +1,15 @@
 package no.habitats.serverBroAndroid.activities;
 
-import java.util.Observable;
 import java.util.Observer;
 
-import no.habitats.serverBroAndroid.AndroidLogView;
 import no.habitats.serverBroAndroid.GuiControllerAndroid;
 import no.habitats.serverBroAndroid.R;
 import no.habitats.serverBroAndroid.SectionsPagerAdapter;
 import serverBro.broClient.ClientController;
-import serverBro.broShared.BroModel;
 import serverBro.broShared.events.internal.ComputerInfoButtonEvent;
 import serverBro.broShared.events.internal.ConnectButtonEvent;
 import serverBro.broShared.events.internal.DisconnectButtonEvent;
 import serverBro.broShared.view.BroGuiController;
-import serverBro.broShared.view.LogView;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -26,7 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class ViewPagerActivity extends ActionBarActivity implements ActionBar.TabListener {
 

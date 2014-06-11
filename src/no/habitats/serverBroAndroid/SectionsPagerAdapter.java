@@ -3,8 +3,6 @@ package no.habitats.serverBroAndroid;
 import java.util.Locale;
 
 import no.habitats.serverBroAndroid.R;
-import no.habitats.serverBroAndroid.activities.ComputerInfoFragment;
-import no.habitats.serverBroAndroid.activities.FeedFragment;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

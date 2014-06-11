@@ -4,7 +4,6 @@ import java.util.Observer;
 
 import serverBro.broShared.BroModel;
 import serverBro.broShared.view.BroGuiController;
-import android.app.Activity;
 
 public class GuiControllerAndroid extends BroGuiController {
 

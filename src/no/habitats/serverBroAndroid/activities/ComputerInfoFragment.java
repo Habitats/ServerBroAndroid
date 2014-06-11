@@ -27,6 +27,7 @@ public class ComputerInfoFragment extends ListFragment implements Observer {
 
     getActivity().runOnUiThread(new Runnable() {
 
+      @Override
       public void run() {
         setListAdapter(adapter);
       }

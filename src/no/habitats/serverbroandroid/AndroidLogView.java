@@ -1,7 +1,6 @@
 package no.habitats.serverBroAndroid;
 
 import serverBro.broShared.view.LogView;
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
