@@ -6,7 +6,7 @@ import java.util.Observer;
 import no.habitats.serverBroAndroid.AndroidLogView;
 import no.habitats.serverBroAndroid.R;
 import serverBro.broShared.BroModel;
-import serverBro.broShared.Logger;
+import serverBro.broShared.misc.Logger;
 import serverBro.broShared.view.LogView;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
