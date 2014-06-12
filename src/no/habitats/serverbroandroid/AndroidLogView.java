@@ -24,6 +24,7 @@ public class AndroidLogView implements LogView {
 
   @Override
   public void add(final String log) {
+
     mainActivity.getActivity().runOnUiThread(new Runnable() {
 
 

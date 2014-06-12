@@ -133,12 +133,6 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
 
 
   private void initializeController() {
-    try {
-      Config.getInstance().loadProperties(getResources().getAssets().open("serverbro.properties"));
-      Config.getInstance().loadSecretKey(getResources().getAssets().open("secret_key"));
-    } catch (IOException e) {
-      Logger.error("Unable to get assets", e);
-    }
 
     BroGuiController guiController = new GuiControllerAndroid();
     clientController = new ClientController(guiController);
@@ -177,5 +171,15 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
       }
     });
   }
-
+  
+  @Override
+  public void onBackPressed() {
+    super.onBackPressed();
+    clientController.stopService();
+  }
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    clientController.stopService();
+  }
 }

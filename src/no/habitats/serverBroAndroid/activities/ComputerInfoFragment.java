@@ -38,6 +38,9 @@ public class ComputerInfoFragment extends ListFragment implements Observer {
 
   @Override
   public void update(Observable observable, Object data) {
-    initListView(((BroModel) observable).getComputerInfo());
+    BroModel model = (BroModel) observable;
+    if (model.getComputerInfo() != null) {
+      initListView(model.getComputerInfo());
+    }
   }
 }

@@ -17,6 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:paddingLeft="@dimen/normal_padding"
+        android:paddingRight="@dimen/normal_padding"
         android:text="Disconnect"
         android:textSize="15sp" />
 
@@ -27,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:paddingLeft="@dimen/normal_padding"
+        android:paddingRight="@dimen/normal_padding"
         android:text="Connect"
         android:textSize="15sp" />
 
@@ -37,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:paddingLeft="@dimen/normal_padding"
+        android:paddingRight="@dimen/normal_padding"
         android:text="Request"
         android:textSize="15sp" />
 

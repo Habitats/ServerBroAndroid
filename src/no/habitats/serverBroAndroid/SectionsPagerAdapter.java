@@ -28,10 +28,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     Fragment fragment = null;
     switch (position) {
       case 0:
-        fragment = feedFragment;
+        fragment = computerInfoFragment;
         break;
       case 1:
-        fragment = computerInfoFragment;
+        fragment = feedFragment;
         break;
     }
     return fragment;
@@ -47,9 +47,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     Locale l = Locale.getDefault();
     switch (position) {
       case 0:
-        return context.getString(R.string.sFeed).toUpperCase(l);
-      case 1:
         return context.getString(R.string.sComputerInfo).toUpperCase(l);
+      case 1:
+        return context.getString(R.string.sFeed).toUpperCase(l);
     }
     return null;
   }

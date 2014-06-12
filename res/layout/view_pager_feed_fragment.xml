@@ -2,10 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/normal_padding"
     android:paddingLeft="@dimen/normal_padding"
     android:paddingRight="@dimen/normal_padding"
-    android:paddingTop="@dimen/normal_padding"
     tools:context="com.example.viewpager.MainActivity$PlaceholderFragment" >
 
     <TextView
@@ -25,8 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:textSize="12sp" />
 
         <View
@@ -41,8 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:textSize="12sp" />
 
         <View
