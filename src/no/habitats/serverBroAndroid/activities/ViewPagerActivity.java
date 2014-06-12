@@ -1,11 +1,14 @@
 package no.habitats.serverBroAndroid.activities;
 
+import java.io.IOException;
 import java.util.Observer;
 
 import no.habitats.serverBroAndroid.GuiControllerAndroid;
 import no.habitats.serverBroAndroid.R;
 import no.habitats.serverBroAndroid.SectionsPagerAdapter;
 import serverBro.broClient.ClientController;
+import serverBro.broShared.Config;
+import serverBro.broShared.Logger;
 import serverBro.broShared.events.internal.ComputerInfoButtonEvent;
 import serverBro.broShared.events.internal.ConnectButtonEvent;
 import serverBro.broShared.events.internal.DisconnectButtonEvent;
@@ -130,6 +133,13 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
 
 
   private void initializeController() {
+    try {
+      Config.getInstance().loadProperties(getResources().getAssets().open("serverbro.properties"));
+      Config.getInstance().loadSecretKey(getResources().getAssets().open("secret_key"));
+    } catch (IOException e) {
+      Logger.error("Unable to get assets", e);
+    }
+
     BroGuiController guiController = new GuiControllerAndroid();
     clientController = new ClientController(guiController);
     ((GuiControllerAndroid) guiController).addObserver((Observer) feedFragment);
