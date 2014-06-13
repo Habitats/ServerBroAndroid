@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Server Bro Client</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Server Bro Client</string>
+    <string name="sFeed">Feed</string>
+    <string name="sComputerInfo">Computer Info</string>
+
+</resources>
