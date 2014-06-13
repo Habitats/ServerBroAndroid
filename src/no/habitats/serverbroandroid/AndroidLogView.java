@@ -8,12 +8,12 @@ import android.widget.TextView;
 public class AndroidLogView implements LogView {
 
   private TextView viewFeed;
-  private Fragment mainActivity;
+  private Fragment feedFragment;
   private boolean autoScroll;
 
   public AndroidLogView(TextView viewFeed, Fragment feedFragment) {
     this.viewFeed = viewFeed;
-    this.mainActivity = feedFragment;
+    this.feedFragment = feedFragment;
     autoScroll = true;
     initTextView();
   }
@@ -25,23 +25,25 @@ public class AndroidLogView implements LogView {
   @Override
   public void add(final String log) {
 
-    mainActivity.getActivity().runOnUiThread(new Runnable() {
+    if (feedFragment.getActivity() != null) {
+      feedFragment.getActivity().runOnUiThread(new Runnable() {
 
 
-      @Override
-      public void run() {
-        viewFeed.append(log + "\n");
+        @Override
+        public void run() {
+          viewFeed.append(log + "\n");
 
-        if (autoScroll) {
-          // auto-scroll
-          final int scrollAmount = viewFeed.getLayout().getLineTop(viewFeed.getLineCount()) - viewFeed.getHeight();
-          // if there is no need to scroll, scrollAmount will be <=0
-          if (scrollAmount > 0)
-            viewFeed.scrollTo(0, scrollAmount);
-          else
-            viewFeed.scrollTo(0, 0);
+          if (autoScroll) {
+            // auto-scroll
+            final int scrollAmount = viewFeed.getLayout().getLineTop(viewFeed.getLineCount()) - viewFeed.getHeight();
+            // if there is no need to scroll, scrollAmount will be <=0
+            if (scrollAmount > 0)
+              viewFeed.scrollTo(0, scrollAmount);
+            else
+              viewFeed.scrollTo(0, 0);
+          }
         }
-      }
-    });
+      });
+    }
   }
 }

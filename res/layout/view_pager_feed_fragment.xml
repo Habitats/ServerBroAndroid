@@ -2,8 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/normal_padding"
-    android:paddingRight="@dimen/normal_padding"
     tools:context="com.example.viewpager.MainActivity$PlaceholderFragment" >
 
     <TextView
@@ -23,13 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
             android:textSize="12sp" />
 
         <View
             android:id="@+id/separator"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="0.2dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/holo_blue_light"
             android:visibility="visible" />
 
         <TextView
@@ -37,22 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
             android:textSize="12sp" />
-
-        <View
-            android:id="@+id/separator2"
-            android:layout_width="fill_parent"
-            android:layout_height="0.2dp"
-            android:background="@android:color/darker_gray"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/tvStatus"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.01"
-            android:text="Status"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>
 
 </RelativeLayout>

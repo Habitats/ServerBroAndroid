@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name="no.habitats.serverBroAndroid.activities.ViewPagerActivity"
-            android:parentActivityName="no.android.serverBroAndroid.activities.LoginActivity" >
+            android:parentActivityName="no.habitats.serverBroAndroid.activities.LoginActivity" >
         </activity>
     </application>
 

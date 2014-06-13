@@ -1,18 +1,20 @@
 package no.habitats.serverBroAndroid.activities;
 
-import java.io.IOException;
+import java.util.Observable;
 import java.util.Observer;
 
 import no.habitats.serverBroAndroid.GuiControllerAndroid;
 import no.habitats.serverBroAndroid.R;
 import no.habitats.serverBroAndroid.SectionsPagerAdapter;
 import serverBro.broClient.ClientController;
+import serverBro.broShared.BroModel;
 import serverBro.broShared.events.internal.ComputerInfoButtonEvent;
 import serverBro.broShared.events.internal.ConnectButtonEvent;
 import serverBro.broShared.events.internal.DisconnectButtonEvent;
 import serverBro.broShared.misc.Config;
-import serverBro.broShared.misc.Logger;
 import serverBro.broShared.view.BroGuiController;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -25,8 +27,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class ViewPagerActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class ViewPagerActivity extends ActionBarActivity implements ActionBar.TabListener, Observer {
 
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -81,6 +84,8 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     }
     initializeComponents();
     initializeController();
+    clientController.startService();
+    // initiateContiniousStatusUpdate(this);
   }
 
 
@@ -127,9 +132,16 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
   private Button bRequest;
   private Button bDisconnect;
   private Button bConnect;
+  private TextView tvStatus;
 
   private Fragment feedFragment;
   private Fragment computerInfoFragment;
+
+  private Context context;
+
+  private Activity a;
+
+  protected boolean continiousUpdates;
 
 
   private void initializeController() {
@@ -138,6 +150,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     clientController = new ClientController(guiController);
     ((GuiControllerAndroid) guiController).addObserver((Observer) feedFragment);
     ((GuiControllerAndroid) guiController).addObserver((Observer) computerInfoFragment);
+    ((GuiControllerAndroid) guiController).addObserver(this);
   }
 
 
@@ -145,6 +158,8 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     bConnect = (Button) findViewById(R.id.buttonConnect);
     bDisconnect = (Button) findViewById(R.id.buttonDisconnect);
     bRequest = (Button) findViewById(R.id.buttonRequest);
+
+    tvStatus = (TextView) findViewById(R.id.tvStatus);
 
     bConnect.setOnClickListener(new OnClickListener() {
 
@@ -171,15 +186,58 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
       }
     });
   }
-  
+
   @Override
   public void onBackPressed() {
     super.onBackPressed();
     clientController.stopService();
   }
+
   @Override
   protected void onDestroy() {
     super.onDestroy();
     clientController.stopService();
+  }
+
+  @Override
+  public void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    clientController.stopService();
+  }
+
+  @Override
+  public void update(final Observable observable, Object data) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+//        tvStatus.setText(Config.getInstance().getNetworkStatus());
+        tvStatus.setText(((BroModel) observable).getLastMessage());
+      }
+    });
+  }
+
+  public void initiateContiniousStatusUpdate(final Activity a) {
+    this.a = a;
+    new Thread(new Runnable() {
+
+      @Override
+      public void run() {
+        while (true) {
+          if (continiousUpdates) {
+            a.runOnUiThread(new Runnable() {
+
+              @Override
+              public void run() {
+                tvStatus.setText(Config.getInstance().getNetworkStatus());
+              }
+            });
+            try {
+              Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+          }
+        }
+      }
+    }).start();
   }
 }

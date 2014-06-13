@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/normal_padding"
+    android:padding="@dimen/padding_normal"
     android:orientation="vertical"
     tools:context="no.habitats.serverbroandroid.activities.LoginActivity"
      >

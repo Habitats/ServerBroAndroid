@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@android:id/empty"
-        android:padding="@dimen/normal_padding"
+        android:padding="@dimen/padding_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nothing to display, connect and click request!" />
