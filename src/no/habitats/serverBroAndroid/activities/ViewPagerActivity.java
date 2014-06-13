@@ -210,7 +210,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     runOnUiThread(new Runnable() {
       @Override
       public void run() {
-//        tvStatus.setText(Config.getInstance().getNetworkStatus());
+        // tvStatus.setText(Config.getInstance().getNetworkStatus());
         tvStatus.setText(((BroModel) observable).getLastMessage());
       }
     });
