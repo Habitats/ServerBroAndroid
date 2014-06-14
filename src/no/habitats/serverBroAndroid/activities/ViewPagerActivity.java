@@ -26,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
     setContentView(R.layout.view_pager_activity);
 
     // Set up the action bar.
@@ -187,6 +189,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
       public void onClick(View v) {
         // clientController.actionPerformed(new MessageButtonEvent());
         clientController.actionPerformed(new ComputerInfoButtonEvent());
+        setProgressBarIndeterminateVisibility(true);
       }
     });
   }
@@ -216,6 +219,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
       public void run() {
         // tvStatus.setText(Config.getInstance().getNetworkStatus());
         tvStatus.setText(((BroModel) observable).getLastMessage());
+        setProgressBarIndeterminateVisibility(false);
       }
     });
   }

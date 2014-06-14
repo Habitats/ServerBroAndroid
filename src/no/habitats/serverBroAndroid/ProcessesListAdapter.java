@@ -1,4 +1,4 @@
-package no.habitats.serverBroAndroid.activities;
+package no.habitats.serverBroAndroid;
 
 import java.util.List;
 

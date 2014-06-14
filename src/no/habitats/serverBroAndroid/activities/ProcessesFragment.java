@@ -3,6 +3,7 @@ package no.habitats.serverBroAndroid.activities;
 import java.util.Observable;
 import java.util.Observer;
 
+import no.habitats.serverBroAndroid.ProcessesListAdapter;
 import no.habitats.serverBroAndroid.R;
 import serverBro.broShared.BroModel;
 import serverBro.broShared.utilities.ComputerInfo;
