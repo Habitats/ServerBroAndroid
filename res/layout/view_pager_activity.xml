@@ -58,7 +58,6 @@
         android:paddingLeft="@dimen/padding_normal"
         android:paddingRight="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_small"
-        android:text="Status"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/background_light" />
 

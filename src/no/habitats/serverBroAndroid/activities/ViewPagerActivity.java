@@ -44,6 +44,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
    */
   ViewPager mViewPager;
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -55,10 +56,11 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
 
     feedFragment = new FeedFragment();
     computerInfoFragment = new ComputerInfoFragment();
+    processesFragment = new ProcessesFragment();
 
     // Create the adapter that will return a fragment for each of the three
     // primary sections of the activity.
-    mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), feedFragment, computerInfoFragment);
+    mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), feedFragment, computerInfoFragment, processesFragment);
 
     // Set up the ViewPager with the sections adapter.
     mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -136,6 +138,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
 
   private Fragment feedFragment;
   private Fragment computerInfoFragment;
+  private Fragment processesFragment;
 
   private Context context;
 
@@ -150,6 +153,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     clientController = new ClientController(guiController);
     ((GuiControllerAndroid) guiController).addObserver((Observer) feedFragment);
     ((GuiControllerAndroid) guiController).addObserver((Observer) computerInfoFragment);
+    ((GuiControllerAndroid) guiController).addObserver((Observer) processesFragment);
     ((GuiControllerAndroid) guiController).addObserver(this);
   }
 

@@ -13,12 +13,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
   private Context context;
   private Fragment feedFragment;
   private Fragment computerInfoFragment;
+  private Fragment processesFragment;
 
-  public SectionsPagerAdapter(Context context, FragmentManager fm, Fragment feedFragment, Fragment computerInfoFragment) {
+  public SectionsPagerAdapter(Context context, FragmentManager fm, Fragment feedFragment, Fragment computerInfoFragment, Fragment processesFragment) {
     super(fm);
     this.context = context;
     this.feedFragment = feedFragment;
     this.computerInfoFragment = computerInfoFragment;
+    this.processesFragment = processesFragment;
   }
 
   @Override
@@ -31,6 +33,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         fragment = computerInfoFragment;
         break;
       case 1:
+        fragment = processesFragment;
+        break;
+      case 2:
         fragment = feedFragment;
         break;
     }
@@ -39,7 +44,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
   @Override
   public int getCount() {
-    return 2;
+    return 3;
   }
 
   @Override
@@ -49,6 +54,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
       case 0:
         return context.getString(R.string.sComputerInfo).toUpperCase(l);
       case 1:
+        return context.getString(R.string.sProcesses).toUpperCase(l);
+      case 2:
         return context.getString(R.string.sFeed).toUpperCase(l);
     }
     return null;

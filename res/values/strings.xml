@@ -6,5 +6,6 @@
     <string name="title_activity_login">Server Bro Client</string>
     <string name="sFeed">Feed</string>
     <string name="sComputerInfo">Computer Info</string>
+    <string name="sProcesses">Processes</string>
 
 </resources>

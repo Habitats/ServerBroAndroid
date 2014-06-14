@@ -56,7 +56,7 @@ public class LoginActivity extends Activity {
         } else {
           // TODO: this should be temporary
           Toast.makeText(LoginActivity.this, "Fill in all the fields!", Toast.LENGTH_SHORT).show();
-          tvHostname.setText("192.168.1.12");
+          tvHostname.setText("192.168.1.3");
           tvPort.setText("1337");
           tvUsername.setText("mrherp");
           tvPassword.setText("dicks");
