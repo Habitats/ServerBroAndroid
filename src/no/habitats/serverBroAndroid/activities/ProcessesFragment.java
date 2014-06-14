@@ -1,11 +1,13 @@
 package no.habitats.serverBroAndroid.activities;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import no.habitats.serverBroAndroid.R;
 import no.habitats.serverBroAndroid.adapters.ProcessesListAdapter;
 import serverBro.broShared.BroModel;
+import serverBro.broShared.misc.Logger;
 import serverBro.broShared.utilities.ComputerInfo;
 import serverBro.broShared.utilities.ComputerProcess;
 import android.os.Bundle;
@@ -17,26 +19,31 @@ import android.widget.ArrayAdapter;
 
 public class ProcessesFragment extends ListFragment implements Observer {
   private View rootView;
+  private List<ComputerProcess> processes;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     rootView = inflater.inflate(R.layout.view_pager_computer_info_fragment, container, false);
-//    TextView heading = rootView.findViewById(R.id.t)
+
+    // TextView heading = rootView.findViewById(R.id.t)
     return rootView;
   }
 
   private void initListView(ComputerInfo computerInfo) {
-    final ArrayAdapter<ComputerProcess> adapter = new ProcessesListAdapter(getActivity(), android.R.layout.simple_list_item_2, computerInfo.getRunningProcesses());
+    List<ComputerProcess> processes = computerInfo.getRunningProcesses();
+    final ArrayAdapter<ComputerProcess> adapter = new ProcessesListAdapter(getActivity(), android.R.layout.simple_list_item_2, processes);
 
-    getActivity().runOnUiThread(new Runnable() {
+    // update is called whenever model is changed, avoid updating the processes unless they have changed!
+    if (this.processes != processes) {
+      getActivity().runOnUiThread(new Runnable() {
 
-      @Override
-      public void run() {
-        setListAdapter(adapter);
-      }
-    });
-
-
+        @Override
+        public void run() {
+          Logger.log("Updating processes!");
+          setListAdapter(adapter);
+        }
+      });
+    }
   }
 
   @Override
@@ -46,5 +53,4 @@ public class ProcessesFragment extends ListFragment implements Observer {
       initListView(model.getComputerInfo());
     }
   }
-
 }
