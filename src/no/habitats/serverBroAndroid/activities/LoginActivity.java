@@ -54,14 +54,20 @@ public class LoginActivity extends Activity {
 
           startActivity(intent);
         } else {
-          // TODO: this should be temporary
-          Toast.makeText(LoginActivity.this, "Fill in all the fields!", Toast.LENGTH_SHORT).show();
-          tvHostname.setText("192.168.1.3");
-          tvPort.setText("1337");
-          tvUsername.setText("mrherp");
-          tvPassword.setText("dicks");
-          onClick(v);
+          enterSampleData(v);
         }
+      }
+
+      /**
+       * Enter sample data for debugging purposes
+       */
+      private void enterSampleData(View v) {
+        Toast.makeText(LoginActivity.this, "Fill in all the fields!", Toast.LENGTH_SHORT).show();
+        tvHostname.setText("192.168.1.3");
+        tvPort.setText("1337");
+        tvUsername.setText("mrherp");
+        tvPassword.setText("dicks");
+        onClick(v);
       }
 
       private boolean checkFields() {
@@ -92,16 +98,5 @@ public class LoginActivity extends Activity {
       Logger.error("Unable to get assets", e);
     }
   }
-
-
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.login, menu);
-    return true;
-  }
-
 
 }

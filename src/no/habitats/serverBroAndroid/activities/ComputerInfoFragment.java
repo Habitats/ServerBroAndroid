@@ -32,8 +32,6 @@ public class ComputerInfoFragment extends ListFragment implements Observer {
         setListAdapter(adapter);
       }
     });
-
-
   }
 
   @Override

@@ -15,10 +15,12 @@ import serverBro.broShared.misc.Config;
 import serverBro.broShared.view.BroGuiController;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -93,12 +95,11 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     // initiateContiniousStatusUpdate(this);
   }
 
-
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
 
     // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.main, menu);
+//    getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
 

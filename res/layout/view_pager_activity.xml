@@ -53,12 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonConnect"
         android:layout_alignParentLeft="true"
-        android:background="@color/holo_blue_light"
+        android:background="@color/habit_blue"
         android:paddingBottom="@dimen/padding_small"
         android:paddingLeft="@dimen/padding_normal"
         android:paddingRight="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_small"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:textColorLink="@android:color/background_light" />
 
 </RelativeLayout>
