@@ -49,7 +49,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
+    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     setContentView(R.layout.view_pager_activity);
 
     // Set up the action bar.
@@ -67,6 +67,7 @@ public class ViewPagerActivity extends ActionBarActivity implements ActionBar.Ta
     // Set up the ViewPager with the sections adapter.
     mViewPager = (ViewPager) findViewById(R.id.pager);
     mViewPager.setAdapter(mSectionsPagerAdapter);
+    mViewPager.setOffscreenPageLimit(3);
 
     // When swiping between different sections, select the corresponding
     // tab. We can also use ActionBar.Tab#select() to do this if we have
