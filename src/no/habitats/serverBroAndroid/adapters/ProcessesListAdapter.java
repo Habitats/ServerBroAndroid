@@ -1,8 +1,10 @@
-package no.habitats.serverBroAndroid;
+package no.habitats.serverBroAndroid.adapters;
 
 import java.util.List;
 
 import no.habitats.serverBroAndroid.R;
+import no.habitats.serverBroAndroid.R.id;
+import no.habitats.serverBroAndroid.R.layout;
 
 import serverBro.broShared.utilities.ComputerProcess;
 import android.content.Context;

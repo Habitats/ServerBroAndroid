@@ -36,58 +36,7 @@ public class LoginActivity extends Activity {
     tvPassword = (TextView) findViewById(R.id.tvPassword);
 
     bConnect = (Button) findViewById(R.id.bConnect);
-    bConnect.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        initializeConfig();
-        if (checkFields()) {
-          Intent intent = new Intent(LoginActivity.this, ViewPagerActivity.class);
-
-          String hostname = tvHostname.getText().toString();
-          int port = Integer.parseInt(tvPort.getText().toString());
-          String username = tvUsername.getText().toString();
-          String password = tvPassword.getText().toString();
-
-          Config.getInstance().setId(new Identity(username, password));
-          Config.getInstance().setServerHostname(hostname);
-          Config.getInstance().setServerPort(port);
-
-          startActivity(intent);
-        } else {
-          enterSampleData(v);
-        }
-      }
-
-      /**
-       * Enter sample data for debugging purposes
-       */
-      private void enterSampleData(View v) {
-        Toast.makeText(LoginActivity.this, "Fill in all the fields!", Toast.LENGTH_SHORT).show();
-        tvHostname.setText("192.168.1.3");
-        tvPort.setText("1337");
-        tvUsername.setText("mrherp");
-        tvPassword.setText("dicks");
-        onClick(v);
-      }
-
-      private boolean checkFields() {
-        boolean enoughInfo = true;
-        if (tvHostname.getText().toString().length() == 0) {
-          enoughInfo = false;
-        }
-        if (tvPort.getText().toString().length() == 0) {
-          enoughInfo = false;
-        }
-        if (tvUsername.getText().toString().length() == 0) {
-          enoughInfo = false;
-        }
-        if (tvPassword.getText().toString().length() == 0) {
-          enoughInfo = false;
-        }
-        return enoughInfo;
-      }
-
-    });
+    bConnect.setOnClickListener(new ConnectButtonListener());
   }
 
   private void initializeConfig() {
@@ -99,4 +48,56 @@ public class LoginActivity extends Activity {
     }
   }
 
+  private class ConnectButtonListener implements OnClickListener {
+    @Override
+    public void onClick(View v) {
+      initializeConfig();
+      if (checkFields()) {
+        Intent intent = new Intent(LoginActivity.this, ViewPagerActivity.class);
+
+        String hostname = tvHostname.getText().toString();
+        int port = Integer.parseInt(tvPort.getText().toString());
+        String username = tvUsername.getText().toString();
+        String password = tvPassword.getText().toString();
+
+        Config.getInstance().setId(new Identity(username, password));
+        Config.getInstance().setServerHostname(hostname);
+        Config.getInstance().setServerPort(port);
+
+        startActivity(intent);
+      } else {
+        enterSampleData(v);
+      }
+    }
+
+    /**
+     * Enter sample data for debugging purposes
+     */
+    private void enterSampleData(View v) {
+      Toast.makeText(LoginActivity.this, "Fill in all the fields!", Toast.LENGTH_SHORT).show();
+      tvHostname.setText("192.168.1.3");
+      tvPort.setText("1337");
+      tvUsername.setText("mrherp");
+      tvPassword.setText("dicks");
+      onClick(v);
+    }
+
+    private boolean checkFields() {
+      boolean enoughInfo = true;
+      if (tvHostname.getText().toString().length() == 0) {
+        enoughInfo = false;
+      }
+      if (tvPort.getText().toString().length() == 0) {
+        enoughInfo = false;
+      }
+      if (tvUsername.getText().toString().length() == 0) {
+        enoughInfo = false;
+      }
+      if (tvPassword.getText().toString().length() == 0) {
+        enoughInfo = false;
+      }
+      return enoughInfo;
+    }
+
+  }
 }
